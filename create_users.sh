@@ -30,7 +30,7 @@ for username in "$@"; do
     # Hämta alla användarnamn utom aktuell användare.
     existing_users="$(cut -d: -f1 /etc/passwd | grep -vx "$username")"
 
-    # Skapa kataloger och sätt rättigheter (700 - Endast användaren får full CRUD till katalogerna).
+    # Skapa kataloger och sätt rättigheter (700 - Endast användaren får läsa, skriva och lista filer i katalogerna).
     mkdir -p "$home_dir/Documents" "$home_dir/Downloads" "$home_dir/Work"
     chmod 700 "$home_dir/Documents" "$home_dir/Downloads" "$home_dir/Work"
 
